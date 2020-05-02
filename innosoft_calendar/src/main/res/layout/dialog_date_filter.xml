@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/em_black_54"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/d12"
+        android:layout_marginRight="@dimen/d12"
+        android:paddingBottom="@dimen/d40"
+        android:background="@drawable/round_all_corner"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d15"
+            android:layout_marginRight="@dimen/d15"
+            android:layout_marginTop="@dimen/d30"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="2020"
+                    android:textColor="@color/news_hours"
+                    android:textSize="30dp"
+                    style="@style/Font_TypeSubTitle"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/layout_prev_month"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/d10"
+                            android:paddingBottom="@dimen/d10"
+                            android:paddingLeft="@dimen/d20"
+                            android:paddingRight="@dimen/d20"
+                            android:background="@color/em_transparent"
+                            android:rotation="180"
+                            android:layout_marginTop="@dimen/d5"
+                            android:layout_marginRight="@dimen/d10"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/ic_arrow_blue_v1"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/title_month"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="December"
+                            android:textColor="@color/news_text"
+                            android:textSize="@dimen/d18"
+                            style="@style/Font_TypeSubTitle"
+                            android:layout_marginTop="@dimen/d3"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/layout_next_month"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/d10"
+                            android:paddingBottom="@dimen/d10"
+                            android:paddingLeft="@dimen/d20"
+                            android:paddingRight="@dimen/d20"
+                            android:background="@color/em_transparent"
+                            android:layout_marginTop="@dimen/d5"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/ic_arrow_blue_v1"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/listViewMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d15"
+                    android:descendantFocusability="afterDescendants"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/listViewDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d10"
+                    android:descendantFocusability="afterDescendants"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_parent_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/listViewDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d5"
+                    android:descendantFocusability="afterDescendants"
+                    android:visibility="gone"/>
+
+                <ProgressBar
+                    android:id="@+id/progressBarCalendar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="@dimen/d30"
+                    android:layout_height="@dimen/d30"
+                    android:layout_gravity="center"
+                    android:indeterminateTint="@color/gray"
+                    android:layout_marginTop="@dimen/d15"
+                    android:layout_marginBottom="@dimen/d15"
+                    android:visibility="gone" />
+
+                <com.maedi.soft.ino.calendar.utils.NonSwipeableViewPager
+                    android:id="@+id/viewpager_calendar"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d20"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Cancel"
+                    android:textColor="@color/def_clr_button"
+                    android:textSize="@dimen/d15"
+                    style="@style/Font_TypeSubTitle_Bold"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

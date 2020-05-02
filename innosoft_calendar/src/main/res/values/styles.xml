@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Font_TypeSubTitle" parent="@android:style/TextAppearance.Medium">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="Font_TypeSubTitle_Bold" parent="@android:style/TextAppearance.Medium">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Font_TypeBody" parent="@android:style/TextAppearance.Medium">
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="Font_TypeBody_2" parent="@android:style/TextAppearance.Medium">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Font_TypeBody_2_Sub1" parent="@android:style/TextAppearance.Medium">
+        <item name="android:fontFamily">@font/sourcesans_pro_regular</item>
+    </style>
+
+    <style name="Font_Button_Type1" parent="@android:style/TextAppearance.Medium">
+        <item name="android:fontFamily">@font/sourcesans_pro_bold</item>
+    </style>
+
+    <style name="Font_Button_Type2" parent="@android:style/TextAppearance.Medium">
+        <item name="android:fontFamily">@font/sourcesans_pro_semibold</item>
+    </style>
+</resources>

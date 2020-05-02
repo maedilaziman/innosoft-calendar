@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_parent_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.maedi.soft.ino.calendar.view.RoundRectLayout
+        android:id="@+id/item_layout"
+        android:layout_width="@dimen/d30"
+        android:layout_height="@dimen/d30"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/d5"
+        android:layout_marginRight="@dimen/d12"
+        android:layout_marginTop="@dimen/d5"
+        app:roundRectRadius="40"
+        app:roundRectColor="@color/default_blue"
+        app:roundRectBorderColor="@color/default_blue">
+
+        <TextView
+            android:id="@+id/item_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/d17"
+            android:layout_marginTop="@dimen/d2"/>
+
+    </com.maedi.soft.ino.calendar.view.RoundRectLayout>
+
+</LinearLayout>
