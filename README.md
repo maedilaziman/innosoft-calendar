@@ -20,11 +20,19 @@ Then, add the library to your module build.gradle
 <pre><span class="pl-en">dependencies</span> {
     implementation <span class="pl-s"><span class="pl-pds">'</span>com.github.maedilaziman:innosoft-calendar:1.0.0<span class="pl-pds">'</span></span>
 }</pre>
+Release 1.0.1
+</br>
+</br>
+<pre><span class="pl-en">dependencies</span> {
+    implementation <span class="pl-s"><span class="pl-pds">'</span>com.github.maedilaziman:innosoft-calendar:1.0.1<span class="pl-pds">'</span></span>
+}</pre>
 <br/>
 <h2>Features</h2>
 <ul>
 <li>Create beauty calendar</li>
 </ul>
+<h2>Features release 1.0.1</h2>
+Change calendar design
 <br/>
 <h2>Usage</h2>
 add this code on your activity,
