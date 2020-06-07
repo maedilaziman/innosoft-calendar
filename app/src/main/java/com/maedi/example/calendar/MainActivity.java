@@ -122,8 +122,15 @@ public class MainActivity extends BuildActivity<View> implements ActivityListene
     }
 
     @Override
-    public void onActivityKeyDown(int keyCode, KeyEvent event) {
-
+    public boolean onActivityKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            if(viewBeautyCalendar.getVisibility() == View.VISIBLE)
+            {
+                viewBeautyCalendar.setVisibility(View.GONE);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -154,6 +161,11 @@ public class MainActivity extends BuildActivity<View> implements ActivityListene
     @Override
     public void onActivityMResult(int requestCode, int resultCode, Intent data) {
 
+    }
+
+    @Override
+    public boolean onActivitySecure() {
+        return false;
     }
 
     @Override

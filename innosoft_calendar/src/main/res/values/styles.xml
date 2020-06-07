@@ -27,4 +27,12 @@
     <style name="Font_Button_Type2" parent="@android:style/TextAppearance.Medium">
         <item name="android:fontFamily">@font/sourcesans_pro_semibold</item>
     </style>
+
+    <style name="spinner_style">
+        <item name="android:dropDownWidth">match_parent</item>
+        <!-- <item name="android:showDividers">none</item>  -->
+        <item name="android:dividerHeight">0dp</item>
+        <item name="android:dropDownHeight">70dp</item>
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+    </style>
 </resources>

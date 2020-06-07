@@ -23,4 +23,7 @@
     <dimen name="d30">30dp</dimen>
     <dimen name="d40">40dp</dimen>
 
+    <dimen name="form_field_text_padding_left">20dp</dimen>
+    <dimen name="form_field_text_padding_topbottom">6dp</dimen>
+
 </resources>

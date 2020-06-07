@@ -9,11 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.maedi.soft.ino.calendar.adapter.CalendarDateAdapter;
+import com.maedi.soft.ino.calendar.adapter.FormSpinnerAdapter;
 import com.maedi.soft.ino.calendar.adapter.RecyclerDate;
 import com.maedi.soft.ino.calendar.adapter.RecyclerMonth;
 import com.maedi.soft.ino.calendar.model.ListObject;
@@ -24,9 +27,11 @@ import com.maedi.soft.ino.calendar.utils.NonSwipeableViewPager;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -46,6 +51,8 @@ public class InitalCalendar {
 
     private TextView titleCancel;
 
+    private Spinner spinnerYear;
+
     private LinearLayout layoutPrevMonth;
 
     private LinearLayout layoutNextMonth;
@@ -56,6 +63,8 @@ public class InitalCalendar {
 
     private ProgressBar progressBarCalendar;
 
+    private FormSpinnerAdapter spinAdapter;
+
     //------------------------------------------//
 
     private RecyclerMonth adapterMonth;
@@ -63,6 +72,8 @@ public class InitalCalendar {
     private RecyclerDate adapterDate;
 
     private ListObject listMonth;
+
+    private List<String> listYears;
 
     private int currentDay, currentMonth, currentYear, userChooseMonth, calcCurrMonth, calcNextMonth, calcPrevMonth;
 
@@ -107,6 +118,7 @@ public class InitalCalendar {
         titleYear = (TextView) null != v ? v.findViewById(R.id.title_year) : f.findViewById(R.id.title_year);
         titleMonth = (TextView) null != v ? v.findViewById(R.id.title_month) : f.findViewById(R.id.title_month);
         titleCancel = (TextView) null != v ? v.findViewById(R.id.title_cancel) : f.findViewById(R.id.title_cancel);
+        spinnerYear = (Spinner) null != v ? v.findViewById(R.id.spinner_year) : f.findViewById(R.id.spinner_year);
         layoutPrevMonth = (LinearLayout) null != v ? v.findViewById(R.id.layout_prev_month) : f.findViewById(R.id.layout_prev_month);
         layoutNextMonth = (LinearLayout) null != v ? v.findViewById(R.id.layout_next_month) : f.findViewById(R.id.layout_next_month);
         layoutParentDate = (LinearLayout) null != v ? v.findViewById(R.id.layout_parent_date) : f.findViewById(R.id.layout_parent_date);
@@ -165,6 +177,21 @@ public class InitalCalendar {
         currentYear = Calendar.getInstance().get(Calendar.YEAR);//LocalDate.now().getYear();
         titleYear.setText(""+currentYear);
         titleMonth.setText(MtHelper.getMonthFromValue(currentMonth, false));
+
+        listYears = new ArrayList<String>();
+
+        int maxCountYear = 70;
+        int calcTotalYear = currentYear - maxCountYear;
+        int iyear = 0;
+        for(int j=1; j<=maxCountYear; j++)
+        {
+            iyear = calcTotalYear+j;
+            listYears.add(""+iyear);
+        }
+
+        spinAdapter = new FormSpinnerAdapter(f, R.layout.form_spinner_item, listYears);
+        spinnerYear.setAdapter(spinAdapter);
+        spinnerYear.setSelection(listYears.size()-1);
 
         ////////////////////////////////////////////////////////////////////////////////////////////////
         //must be start from 1
@@ -236,8 +263,10 @@ public class InitalCalendar {
         CalendarDateAdapter.CalendarDateAdapter_Fragment1 listenerFragment1 = new CalendarDateAdapter.CalendarDateAdapter_Fragment1() {
             @Override
             public void getVal(String val) {
-                final String dateStr = MtHelper.getMonthFromValue(calcCurrMonth, true)+"/"+MtHelper.twoDigit(Integer.parseInt(val))+"/"+currentYear;
-                String fromDate = MtHelper.twoDigit(calcCurrMonth)+"/"+MtHelper.twoDigit(Integer.parseInt(val))+"/"+currentYear;
+                //final String dateStr = MtHelper.getMonthFromValue(calcCurrMonth, true)+"/"+MtHelper.twoDigit(Integer.parseInt(val))+"/"+currentYear;
+                //String fromDate = MtHelper.twoDigit(calcCurrMonth)+"/"+MtHelper.twoDigit(Integer.parseInt(val))+"/"+currentYear;
+                final String dateStr = MtHelper.getMonthFromValue(calcCurrMonth, true)+"/"+MtHelper.twoDigit(Integer.parseInt(val))+"/"+spinnerYear.getSelectedItem();
+                String fromDate = MtHelper.twoDigit(calcCurrMonth)+"/"+MtHelper.twoDigit(Integer.parseInt(val))+"/"+spinnerYear.getSelectedItem();
                 final String dateAfterWeeks = getCalculatedDate(fromDate, "MMM/dd/yyyy", 7);
                 Timber.d(TAG+"THE_DATE - "+dateStr);
                 Date date = null;
@@ -400,6 +429,7 @@ public class InitalCalendar {
         viewPager.setVisibility(View.GONE);
         progressBarCalendar.setVisibility(View.VISIBLE);
         Animation animation = AnimationUtils.loadAnimation(f, R.anim.overlay_in_from_top);
+        spinnerYear.setSelection(listYears.size()-1);
         if(null != listener)listener.startAnim(animation);
 
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {

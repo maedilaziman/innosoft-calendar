@@ -39,7 +39,20 @@
                     android:text="2020"
                     android:textColor="@color/news_hours"
                     android:textSize="30dp"
-                    style="@style/Font_TypeSubTitle"/>
+                    style="@style/Font_TypeSubTitle"
+                    android:visibility="gone"/>
+
+                <Spinner
+                    android:id="@+id/spinner_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/em_transparent"
+                    android:gravity="center"
+                    android:textColor="@color/news_hours"
+                    android:spinnerMode="dropdown"
+                    style="@style/spinner_style"
+                    android:popupBackground="@drawable/background_popupwindow"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"

@@ -23,7 +23,6 @@ import com.maedi.soft.ino.calendar.view.GridSpacingItemDecoration_V2;
 
 import java.text.DateFormat;
 import java.util.Calendar;
-
 import timber.log.Timber;
 
 public class CalendarMonth11 extends BaseFragment {
